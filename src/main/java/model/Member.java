@@ -2,31 +2,58 @@ package model;
 
 import lombok.Getter;
 import lombok.Setter;
-
+import lombok.ToString;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+@ToString
 @Getter
 @Setter
-public class Member {
+@Entity
+public class Member implements IMember {
+   @Id @GeneratedValue
     private int id;
     private String fullName;
-    private Calendar dateOfBirth;
-    private int pesel;
+    //    private Calendar dateOfBirth;
+    private long pesel;
     private Address address;
-    private int contactNumber;
+    //    private int contactNumber;
     private String email;
-    private List<String> healthIssues;
+    //    private List<String> healthIssues;
     private int emergencyContact;
+    public static List<Member> members = new ArrayList<>();
 
-    public Member() {
+    public Member(String fullName) {
+        this.fullName = fullName;
+
     }
 
-    public class MemberBuilder {
+    public Member() {
+
+    }
+
+
+    @Override
+    public void removeMember(Member member) {
+        members.remove(member);
+    }
+
+//    @Override
+//    public List<Member> sortByAge() {
+//        members.sort((o1, o2) -> o1.getDateOfBirth().compareTo(o2.getDateOfBirth()));
+//        return members;
+//    }
+
+    public static class MemberBuilder {
         private int id;
         private String fullName;
         private Calendar dateOfBirth;
-        private int pesel;
+        private long pesel;
         private Address address;
         private int contactNumber;
         private String email;
@@ -43,7 +70,7 @@ public class Member {
             return this;
         }
 
-        public MemberBuilder withPesel(int pesel) {
+        public MemberBuilder withPesel(long pesel) {
             this.pesel = pesel;
             return this;
         }
@@ -60,12 +87,16 @@ public class Member {
 
         public Member create() {
             Member member = new Member();
-            member.setDateOfBirth(this.dateOfBirth);
+            member.setFullName(this.fullName);
+//            member.setContactNumber(this.contactNumber);
+//            member.setDateOfBirth(this.dateOfBirth);
             member.setPesel(this.pesel);
-            member.setHealthIssues(this.healthIssues);
+//            member.setHealthIssues(this.healthIssues);
             member.setEmergencyContact(this.emergencyContact);
             member.setEmail(this.email);
+            members.add(member);
             return member;
+
         }
     }
 }
