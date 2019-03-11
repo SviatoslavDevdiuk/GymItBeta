@@ -3,10 +3,6 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -14,23 +10,23 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-@Entity
 public class Member implements IMember {
-   @Id @GeneratedValue
     private int id;
     private String fullName;
     //    private Calendar dateOfBirth;
     private long pesel;
     private Address address;
-    //    private int contactNumber;
+        private int contactNumber;
     private String email;
     //    private List<String> healthIssues;
     private int emergencyContact;
     public static List<Member> members = new ArrayList<>();
 
-    public Member(String fullName) {
+    public Member(int id, String fullName, int contactNumber, String email) {
+        this.id = id;
         this.fullName = fullName;
-
+        this.contactNumber = contactNumber;
+        this.email = email;
     }
 
     public Member() {

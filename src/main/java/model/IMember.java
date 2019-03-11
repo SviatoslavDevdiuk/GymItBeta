@@ -1,10 +1,9 @@
 package model;
 
-import java.util.List;
-
 public interface IMember {
 
     void removeMember(Member member);
+//    boolean addMember (Member member);
 
 //    List<Member> sortByAge();
 

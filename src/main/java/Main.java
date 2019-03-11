@@ -1,16 +1,31 @@
-import com.opencsv.CSVWriter;
-import model.Member;
 
-import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
+        testApp();
+    }
 
-        CSVWriter csvWriter = new CSVWriter(new FileWriter("members1.csv"));
-        Member member = new Member.MemberBuilder("Sviatoslav Devdiuk",788148844)
-                .withPesel(94051715).withEmergencyContact(844148788).create();
+    public static void testApp() throws SQLException {
+        Connection conn = DriverManager.
+                getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+        Statement stmt = conn.createStatement();
+        try {
+            stmt.execute("CREATE TABLE IF NOT EXISTS members2" +
+                    "( id INT NOT NULL AUTO_INCREMENT,"
+                    + "full_name VARCHAR(100) NOT NULL,"
+                    + "contact_number INT(100) NOT NULL,"
+                    + "email VARCHAR(100) NOT NULL)");
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            stmt.close();
+            conn.close();
+        }
 
     }
 }
