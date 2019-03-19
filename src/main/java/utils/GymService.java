@@ -25,7 +25,7 @@ public class GymService{
     public boolean checkIfAdministratorExists(String login, String password) {
         boolean ifExists = false;
         for (Administrator a : Administrator.administrators) {
-            if (a.getLogin().equals(login) && a.getPassword().equals(password)) {
+            if (a.getLogin().equalsIgnoreCase(login) && a.getPassword().equals(password)) {
                 ifExists = true;
             }
         }
