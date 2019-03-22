@@ -1,6 +1,5 @@
 package utils;
 
-import com.opencsv.CSVWriter;
 import model.Member;
 
 import java.io.*;

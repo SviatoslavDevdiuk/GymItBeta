@@ -1,5 +1,6 @@
 package model;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-@ToString
-@Setter
 @Getter
+@Setter
+@ToString
 public class Member implements IMember {
     private int id;
     public String firstName;
@@ -47,11 +48,6 @@ public class Member implements IMember {
 
     @Override
     public Member editMember(BigInteger contactNumber) {
-
-
-
-
-
         return null;
     }
 
