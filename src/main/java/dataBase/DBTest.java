@@ -1,7 +1,6 @@
 package dataBase;
 
 import model.Member;
-import model.MemberDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.List;
 
 public class DBTest {
     private static Member memberInstance = new Member();
-    private static MemberDAO memberDAO = MemberDAO.getInstance();
     private static List<Member> downloadedMembers = new ArrayList<>();
 
     public static void addNewMembers() {

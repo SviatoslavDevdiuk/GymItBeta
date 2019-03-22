@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Entity;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,18 +14,19 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Entity
 public class Member implements IMember {
     private int id;
     public String firstName;
     private String lastName;
     //    private Calendar dateOfBirth;
-    private long pesel;
-    private Address address;
+//    private long pesel;
+//    private Address address;
     private int contactNumber;
     private String email;
     //    private List<String> healthIssues;
-    private int emergencyContact;
-    public static List<Member> members = new ArrayList<>();
+//    private int emergencyContact;
+//    public static List<Member> members = new ArrayList<>();
 
     public Member(String firstName, String lastName, int contactNumber) {
         this.firstName = firstName;
@@ -36,15 +38,7 @@ public class Member implements IMember {
 
     }
 
-    @Override
-    public void removeMember(Member member) {
-        members.remove(member);
-    }
 
-    @Override
-    public boolean addMember(Member member) {
-        return members.add(member);
-    }
 
     @Override
     public Member editMember(BigInteger contactNumber) {
@@ -107,9 +101,7 @@ public class Member implements IMember {
             member.setLastName(this.lastName);
             member.setContactNumber(this.contactNumber);
 //            member.setDateOfBirth(this.dateOfBirth);
-            member.setPesel(this.pesel);
-//            member.setHealthIssues(this.healthIssues);
-            member.setEmergencyContact(this.emergencyContact);
+//            member.setPesel(this.pesel);
             member.setEmail(this.email);
 
             return member;
