@@ -1,4 +1,4 @@
-package model;
+package Application.model;
 
 import java.math.BigInteger;
 public interface IMember  {

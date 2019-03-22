@@ -1,6 +1,6 @@
-package utils;
+package Application.utils;
 
-import model.Administrator;
+import Application.model.Administrator;
 
 public class GymService{
     private static GymService instance;

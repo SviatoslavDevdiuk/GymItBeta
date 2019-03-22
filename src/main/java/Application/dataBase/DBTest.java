@@ -1,6 +1,6 @@
-package dataBase;
+package Application.dataBase;
 
-import model.Member;
+import Application.model.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
