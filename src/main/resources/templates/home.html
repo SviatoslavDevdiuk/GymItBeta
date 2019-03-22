@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<p>
+<form action="add Member">
+    <input th:type="text" name="first Name"><br>
+    <input th:type="text" name="last Name"><br>
+    <input th:type="text" name="email"><br>
+    <input th:type="submit"><br>
+</form>
+<span th:text="'Today isss: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" th:remove="tag"></span>
+</p>
+</body>
+</html>

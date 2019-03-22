@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MemberController {
-    @RequestMapping(value = "/home",method = RequestMethod.GET)
+    @RequestMapping(value = "/home")
     public String home(){
         return "home";
     }
