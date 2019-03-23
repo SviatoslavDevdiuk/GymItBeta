@@ -14,8 +14,8 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "MEMBERS4")
-public class Member implements IMember {
+@Table(name = "MEMBERS")
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -44,13 +44,6 @@ public class Member implements IMember {
 
     }
 
-
-
-    @Override
-    public Member editMember(BigInteger contactNumber) {
-        return null;
-    }
-
 //    @Override
 //    public List<Member> sortByAge() {
 //        members.sort((o1, o2) -> o1.getDateOfBirth().compareTo(o2.getDateOfBirth()));
@@ -63,7 +56,7 @@ public class Member implements IMember {
         private String lastName;
         private Calendar dateOfBirth;
         private long pesel;
-        private Address address;
+        //        private Address address;
         private int contactNumber;
         private String email;
         private List<String> healthIssues;

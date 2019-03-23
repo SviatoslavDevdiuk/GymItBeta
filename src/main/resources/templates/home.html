@@ -7,12 +7,18 @@
 <body>
 <p>
 <form action="addMember">
-    <input th:type="text" name="firstName"><br>
-    <input th:type="text" name="lastName"><br>
-    <input th:type="text" name="email"><br>
+    Register a new Member<br>
+    First Name<br><input th:type="text" name="firstName"><br>
+    Last Name<br><input th:type="text" name="lastName"><br>
+    Email<br><input th:type="text" name="email"><br>
     <input th:type="submit"><br>
 </form>
-<span th:text="'Today isss: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" th:remove="tag"></span>
+<form action="getMember">
+    Show member's info<br>
+    enter member's ID<br><input th:type="text" name="id"><br>
+    <input th:type="submit"><br>
+</form>
+<span th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" th:remove="tag"></span>
 </p>
 </body>
 </html>
