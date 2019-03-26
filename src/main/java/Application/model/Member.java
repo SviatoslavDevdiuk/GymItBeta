@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Calendar;
 import java.util.List;
 
@@ -14,30 +13,30 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "MEMBERS")
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+//    @Column(name = "id")
     private Long id;
-    @Column(name = "first_name")
+//    @Column(name = "first_name")
     public String firstName;
-    @Column(name = "last_name")
+//    @Column(name = "last_name")
     private String lastName;
     //    private Calendar dateOfBirth;
 //    private long pesel;
 //    private Address address;
-//    private int contactNumber;
-    @Column(name = "email")
+    private int contactNumber;
+//    @Column(name = "email")
     private String email;
     //    private List<String> healthIssues;
 //    private int emergencyContact;
 //    public static List<Member> members = new ArrayList<>();
 
-    public Member(String firstName, String lastName, String email) {
+    public Member(String firstName, String lastName, String email,int contactNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.contactNumber = contactNumber;
     }
 
     public Member() {
@@ -98,7 +97,7 @@ public class Member {
             Member member = new Member();
             member.setFirstName(this.firstName);
             member.setLastName(this.lastName);
-//            member.setContactNumber(this.contactNumber);
+            member.setContactNumber(this.contactNumber);
 //            member.setDateOfBirth(this.dateOfBirth);
 //            member.setPesel(this.pesel);
             member.setEmail(this.email);

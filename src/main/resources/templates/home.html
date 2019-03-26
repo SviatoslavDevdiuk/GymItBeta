@@ -11,11 +11,17 @@
     First Name<br><input th:type="text" name="firstName"><br>
     Last Name<br><input th:type="text" name="lastName"><br>
     Email<br><input th:type="text" name="email"><br>
+    Contact Number<br><input th:type="text" name="contactNumber"><br>
     <input th:type="submit"><br>
 </form>
-<form action="getMember">
+<form action="getMemberById">
     Show member's info<br>
     enter member's ID<br><input th:type="text" name="id"><br>
+    <input th:type="submit"><br>
+</form>
+<form action="getMemberByFirstName">
+    Show member's info<br>
+    enter member's First Name<br><input th:type="text" name="firstName"><br>
     <input th:type="submit"><br>
 </form>
 <span th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" th:remove="tag"></span>
