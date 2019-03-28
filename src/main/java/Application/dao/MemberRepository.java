@@ -11,6 +11,7 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 //    List<Member> findByFirstName(String firstName);
 
-    @Query("SELECT m FROM MEMBER m WHERE m.FIRST_NAME LIKE %?1")
+//    @Query(value = "from Member where firstName = ?1",nativeQuery = true)
+    @Query(value = "SELECT m FROM Member m WHERE m.firstName LIKE %?1")
     List<Member> findByFirstNameEndsWith(@Param("firstName")String firstName);
 }

@@ -14,7 +14,6 @@ import java.util.List;
 
 @Controller
 public class MemberController {
-    List<Member> members = new ArrayList<>();
     @Autowired
     MemberRepository repository;
 
@@ -37,11 +36,19 @@ public class MemberController {
         return mv;
     }
 
-    @RequestMapping("/getMemberByName")
-    public ModelAndView getMemberByFirstName(@RequestParam String fistName){
-        ModelAndView mv = new ModelAndView("showMember");
-        members = repository.findByFirstNameEndsWith(fistName);
-        mv.addObject(members);
+    @RequestMapping("/members")
+    @ResponseBody
+    public String getMembers(){
+        return repository.findAll().toString();
+    }
+
+    @RequestMapping("/getMembersByName")
+    public ModelAndView getMembersByFirstName(@RequestParam String firstName){
+
+        List<Member> memberList = new ArrayList<>();
+        ModelAndView mv = new ModelAndView("showMembers.html");
+        memberList = repository.findByFirstNameEndsWith(firstName);
+        mv.addObject(memberList);
         return mv;
 
     }
