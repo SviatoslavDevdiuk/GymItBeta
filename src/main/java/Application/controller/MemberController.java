@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MemberController {
@@ -28,25 +29,42 @@ public class MemberController {
         return "home";
     }
 
-    @RequestMapping("/getMemberById")
-    public ModelAndView getMemberById(@RequestParam Long id) {
-        ModelAndView mv = new ModelAndView("showMember");
-        Member member = repository.findById(id).orElse(new Member());
-        mv.addObject(member);
-        return mv;
+    @PostMapping("/member")
+    public Member addMemberByPost(@RequestBody Member member) {
+        repository.save(member);
+        return member;
     }
 
-    @RequestMapping("/members")
+    @GetMapping("/member/{id}")
     @ResponseBody
-    public String getMembers(){
-        return repository.findAll().toString();
+    public Optional<Member> getMemberById(@PathVariable("id") @RequestParam Long id) {
+        return repository.findById(id);
+//    public ModelAndView getMemberById(@RequestParam Long id) {
+//        ModelAndView mv = new ModelAndView("showMember");
+//        Member member = repository.findById(id).orElse(new Member());
+//        mv.addObject(member);
+//        return mv;
     }
 
-    @RequestMapping("/getMembersByName")
-    public ModelAndView getMembersByFirstName(@RequestParam String firstName){
+    @DeleteMapping("/delete-member/{id}")
+    public String deleteMember(@PathVariable Long id) {
+        Member m = repository.getOne(id);
+        repository.delete(m);
+        return "member has been deleted successfully";
+    }
+
+    @GetMapping("/members")
+    @ResponseBody
+    public List<Member> getMembers() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/getMembersByName")
+    @ResponseBody
+    public ModelAndView getMembersByFirstName(@RequestParam String firstName) {
 
         List<Member> memberList = new ArrayList<>();
-        ModelAndView mv = new ModelAndView("showMembers.html");
+        ModelAndView mv = new ModelAndView("showMembers");
         memberList = repository.findByFirstNameEndsWith(firstName);
         mv.addObject(memberList);
         return mv;
