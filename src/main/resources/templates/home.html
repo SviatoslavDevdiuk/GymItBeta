@@ -6,12 +6,16 @@
 </head>
 <body>
 <p>
-<form action="addMember">
+<form action="/add-member">
     Register a new Member<br>
     First Name<br><input th:type="text" name="firstName"><br>
     Last Name<br><input th:type="text" name="lastName"><br>
     Email<br><input th:type="text" name="email"><br>
     Contact Number<br><input th:type="text" name="contactNumber"><br>
+    <input th:type="submit"><br>
+</form>
+<form action="/edit-member/">
+    Edit member's info<br>
     <input th:type="submit"><br>
 </form>
 <form action="/member/{id}">
@@ -24,11 +28,11 @@
     enter member's First Name<br><input th:type="text" name="firstName"><br>
     <input th:type="submit"><br>
 </form>
-<form action="/member">
+<form action="/members">
     Show all members<br>
     <input th:type="submit"><br>
 </form>
-<form action="/delete-member/{id}">
+<form action="/delete-member/{id}" >
     Delete a member by Id<br>
     enter member's ID<br><input th:type="text" name="id"><br>
     <input th:type="submit"><br>

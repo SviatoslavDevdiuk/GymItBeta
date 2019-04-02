@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Members information</title>
+</head>
+<body>
+<h1>Edit Member's Info</h1>
+<form action="/edit-member-processing/">
+    enter member's ID<br><input th:type="text" name="id"><br>
+    Please enter a new data for your member<br>
+    First Name<br><input th:type="text" name="firstName"><br>
+    Last Name<br><input th:type="text" name="lastName"><br>
+    Contact Number<br><input th:type="text" name="contactNumber"><br>
+    Email<br><input th:type="text" name="email"><br>
+    <input th:type="submit"th:value="Submit">
+</form>
+
+</body>
+</html>

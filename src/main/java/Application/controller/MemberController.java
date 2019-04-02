@@ -23,10 +23,28 @@ public class MemberController {
         return "home";
     }
 
-    @RequestMapping("/addMember")
+    @RequestMapping("/add-member")
     public String addMember(Member member) {
         repository.save(member);
         return "home";
+    }
+
+    @RequestMapping("/edit-member/")
+    public String editForm() {
+
+        return "editMember";
+    }
+
+    @RequestMapping("/edit-member-processing")
+    @ResponseBody
+    public String editMember(@RequestParam Long id, String firstName, String lastName, int contactNumber, String email) {
+        Member member =getMemberById(id);
+        member.setFirstName(firstName);
+        member.setLastName(lastName);
+        member.setContactNumber(contactNumber);
+        member.setEmail(email);
+        repository.save(member);
+        return "Member " + member.firstName + " " + member.getLastName() + " info has been updated successfully";
     }
 
     @PostMapping("/member")
@@ -37,8 +55,8 @@ public class MemberController {
 
     @GetMapping("/member/{id}")
     @ResponseBody
-    public Optional<Member> getMemberById(@PathVariable("id") @RequestParam Long id) {
-        return repository.findById(id);
+    public Member getMemberById(@PathVariable("id") @RequestParam Long id) {
+        return repository.findById(id).get();
 //    public ModelAndView getMemberById(@RequestParam Long id) {
 //        ModelAndView mv = new ModelAndView("showMember");
 //        Member member = repository.findById(id).orElse(new Member());
@@ -46,14 +64,18 @@ public class MemberController {
 //        return mv;
     }
 
-    @DeleteMapping("/delete-member/{id}")
-    public String deleteMember(@PathVariable Long id) {
-        Member m = repository.getOne(id);
+    @GetMapping(value = "/delete-member/{id}")
+    @ResponseBody
+    public String deleteMemberById(@PathVariable("id") @RequestParam Long id) {
+        Member m = repository.findById(id).get();
         repository.delete(m);
-        return "member has been deleted successfully";
+        return "member " + m.firstName + " " + m.getLastName() + " has been deleted successfully";
     }
+//    public String deleteMember(@PathVariable Long id) {
+//        Member m = repository.getOne(id);
+//        repository.deleteMemberById(m);
 
-    @GetMapping("/members")
+    @RequestMapping(value = "/members")
     @ResponseBody
     public List<Member> getMembers() {
         return repository.findAll();

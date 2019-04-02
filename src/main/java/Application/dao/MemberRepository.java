@@ -14,4 +14,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 //    @Query(value = "from Member where firstName = ?1",nativeQuery = true)
     @Query(value = "SELECT m FROM Member m WHERE m.firstName LIKE %?1")
     List<Member> findByFirstNameEndsWith(@Param("firstName")String firstName);
+
+    @Query(value = "DELETE m FROM Member m WHERE m.id = ?1",nativeQuery = true)
+    String deleteMemberById(@Param("id")Long id);
+
 }
