@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Login Page</title>
+</head>
+<body>
+<h1>Registration</h1>
+<form action="/register-new-administrator" method="post">
+    <div>
+        <label>User name</label>
+        <input th:type="text" name="userName"><br><br>
+        <label>Password&nbsp;&nbsp;</label>
+        <input th:type="text" name="password"><br><br>
+        <label>Registration Key</label>
+        <input th:type="text" name="registrationKey">
+        <button th:type="submit">Submit</button>
+    </div>
+</form>
+
+
+
+</body>
+</html>

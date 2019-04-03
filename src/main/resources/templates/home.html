@@ -37,6 +37,11 @@
     enter member's ID<br><input th:type="text" name="id"><br>
     <input th:type="submit"><br>
 </form>
+<form action="/check-registration-key">
+    please enter registration key<br>
+    <input th:type="text" name="registrationKey">
+    <input th:type="submit"><br>
+</form>
 <span th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" th:remove="tag"></span>
 </p>
 </body>

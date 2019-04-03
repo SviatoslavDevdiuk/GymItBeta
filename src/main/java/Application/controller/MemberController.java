@@ -35,7 +35,7 @@ public class MemberController {
         return "editMember";
     }
 
-    @RequestMapping("/edit-member-processing")
+    @PostMapping(value = "/edit-member-processing")
     @ResponseBody
     public String editMember(@RequestParam Long id, String firstName, String lastName, int contactNumber, String email) {
         Member member =getMemberById(id);
