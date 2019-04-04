@@ -6,6 +6,9 @@
 </head>
 <body>
 <p>
+<h1>Welcome,
+    <output th:text="${userName}"></output>!
+</h1>
 <form action="/add-member">
     Register a new Member<br>
     First Name<br><input th:type="text" name="firstName"><br>
@@ -32,7 +35,7 @@
     Show all members<br>
     <input th:type="submit"><br>
 </form>
-<form action="/delete-member/{id}" >
+<form action="/delete-member/{id}">
     Delete a member by Id<br>
     enter member's ID<br><input th:type="text" name="id"><br>
     <input th:type="submit"><br>

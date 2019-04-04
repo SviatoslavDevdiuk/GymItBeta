@@ -9,7 +9,7 @@
 //    public void showMenu() {
 //        System.out.println("#########################\n" +
 //                "1.Log In\n2.News\n3.Employee Schedule\n4.Sections Schedule" +
-//                "\n5.Add New Administrator Profile\n6.Exit App");
+//                "\n5.Add New User Profile\n6.Exit App");
 //    }
 //    public void showAdministratorMenu(){
 //        System.out.println("*************************" +

@@ -1,6 +1,6 @@
 //package Application.utils;
 //
-//import Application.model.Administrator;
+//import Application.model.User;
 //
 //public class GymService{
 //    private static GymService instance;
@@ -17,14 +17,14 @@
 //    }
 //
 //    public void createNewAdminProfile(String login, String password) {
-//        Administrator administrator = new Administrator(login, password);
-//        Administrator.administrators.add(administrator);
-//        System.out.println(Administrator.administrators);
+//        User administrator = new User(login, password);
+//        User.administrators.add(administrator);
+//        System.out.println(User.administrators);
 //    }
 //
 //    public boolean checkIfAdministratorExists(String login, String password) {
 //        boolean ifExists = false;
-//        for (Administrator a : Administrator.administrators) {
+//        for (User a : User.administrators) {
 //            if (a.getLogin().equalsIgnoreCase(login) && a.getPassword().equals(password)) {
 //                ifExists = true;
 //            }
