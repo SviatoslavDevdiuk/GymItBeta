@@ -5,7 +5,6 @@ import Application.dao.UserRepository;
 import Application.model.Member;
 import Application.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,12 +26,12 @@ public class AdminController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home() {
         return "home";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("ADMIN")
     @PostMapping("/admin/add")
     public String addUserByAdmin(@RequestBody User user) {
         String password = user.getPassword();
