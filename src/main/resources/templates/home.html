@@ -9,13 +9,8 @@
 <h1>Welcome
     <!--,    <output th:text="${userName}"></output>!-->
 </h1>
-<form action="/add-member">
-    Register a new Member<br>
-    First Name<br><input th:type="text" name="firstName"><br>
-    Last Name<br><input th:type="text" name="lastName"><br>
-    Email<br><input th:type="text" name="email"><br>
-    Contact Number<br><input th:type="text" name="contactNumber"><br>
-    <input th:type="submit"><br>
+<form th:action="@{/add-member}">
+    Add a new Member<input th:type="submit"><br>
 </form>
 <form action="/edit-member/">
     Edit member's info<br>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Member information</title>
+</head>
+<body>
+<h1>Enter an information for new member:</h1>
+<form th:action="@{/register-member}" th:method="post"><br>
+    First name:<br> <input th:type="text" th:name="firstName"><br>
+    Last name:<br><input th:type="text" th:name="lastName"><br>
+    Email:<br><input th:type="text" th:name="email"><br>
+    Contact number:<br><input th:type="text" th:name="contactNumber"><br>
+    <button th:type="submit">Register</button>
+</form>
+
+</body>
+</html>

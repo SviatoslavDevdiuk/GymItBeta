@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Edit Member's Info</h1>
-<form action="/edit-member-processing/">
+<form th:action="@{/edit-member-processing/}" method="post">
     enter member's ID<br><input th:type="text" name="id"><br>
     Please enter a new data for your member<br>
     First Name<br><input th:type="text" name="firstName"><br>

@@ -19,7 +19,7 @@ public class Member {
 //    @Column(name = "id")
     private Long id;
 //    @Column(name = "first_name")
-    public String firstName;
+    private String firstName;
 //    @Column(name = "last_name")
     private String lastName;
     //    private Calendar dateOfBirth;
