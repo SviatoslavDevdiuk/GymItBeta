@@ -1,9 +1,9 @@
-package Application.controller;
+package application.controller;
 
-import Application.dao.UserRepository;
-import Application.dao.RegistrationRepository;
-import Application.model.User;
-import Application.model.RegistrationAccess;
+import application.repository.UserRepository;
+import application.repository.RegistrationRepository;
+import application.model.User;
+import application.model.RegistrationAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

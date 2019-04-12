@@ -1,6 +1,6 @@
-//package Application.utils;
+//package application.utils;
 //
-//import Application.model.User;
+//import application.model.User;
 //
 //public class GymService{
 //    private static GymService instance;

@@ -1,12 +1,10 @@
-package Application.service;
+package application.service;
 
-import Application.model.User;
+import application.model.User;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.authority.mapping.SimpleAttributes2GrantedAuthoritiesMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;

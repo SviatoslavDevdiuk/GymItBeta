@@ -1,11 +1,9 @@
-package Application.controller;
+package application.controller;
 
-import Application.dao.UserRepository;
-import Application.model.User;
+import application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {

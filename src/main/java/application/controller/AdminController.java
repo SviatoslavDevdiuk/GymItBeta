@@ -1,9 +1,9 @@
-package Application.controller;
+package application.controller;
 
-import Application.dao.MemberRepository;
-import Application.dao.UserRepository;
-import Application.model.Member;
-import Application.model.User;
+import application.repository.MemberRepository;
+import application.repository.UserRepository;
+import application.model.Member;
+import application.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
