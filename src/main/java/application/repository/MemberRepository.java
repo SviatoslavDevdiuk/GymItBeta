@@ -18,4 +18,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "DELETE m FROM Member m WHERE m.id = ?1",nativeQuery = true)
     String deleteMemberById(@Param("id")Long id);
 
+
 }
