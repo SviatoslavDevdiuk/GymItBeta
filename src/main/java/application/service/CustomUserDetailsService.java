@@ -1,7 +1,7 @@
-package Application.service;
+package application.service;
 
-import Application.dao.UserRepository;
-import Application.model.User;
+import application.repository.UserRepository;
+import application.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
