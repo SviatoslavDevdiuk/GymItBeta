@@ -4,6 +4,7 @@ import application.repository.MemberRepository;
 import application.repository.UserRepository;
 import application.model.Member;
 import application.model.User;
+import application.service.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private MemberRepository memberRepository;
+    @Autowired
+    MemberServiceImpl memberService;
 
     @Autowired
     UserRepository userRepository;
@@ -50,7 +53,7 @@ public class AdminController {
     @PostMapping("/register-member")
     @ResponseBody
     public String addMember(Member member) {
-        memberRepository.save(member);
+        memberService.save(member);
         return "member has been added successfully";
     }
 
@@ -112,7 +115,7 @@ public class AdminController {
 
         List<Member> memberList = new ArrayList<>();
         ModelAndView mv = new ModelAndView("showMembers");
-        memberList = memberRepository.findByFirstNameEndsWith(firstName);
+        memberList = memberService.findByFirstNameEndsWith(firstName);
         mv.addObject(memberList);
         return mv;
 
